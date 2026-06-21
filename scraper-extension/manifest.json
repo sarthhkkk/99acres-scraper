@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "99acres Property Scraper",
+  "version": "3.0",
+  "description": "Scrape, compare, and track 99acres.com property listings with Discord integration",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://www.99acres.com/*",
+    "https://discord.com/api/webhooks/*"
+  ],
+  "action": {
+    "default_title": "99acres Scraper",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.99acres.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}
